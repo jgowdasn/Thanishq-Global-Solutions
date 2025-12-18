@@ -1,26 +1,445 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-primary-50: #e6f3fa;
+  --color-primary-100: #cce7f5;
+  --color-primary-200: #99cfeb;
+  --color-primary-300: #66b7e1;
+  --color-primary-400: #339fd7;
+  --color-primary-500: #0087cd;
+  --color-primary-600: #006ca4;
+  --color-primary-700: #00517b;
+  --color-primary-800: #003652;
+  --color-primary-900: #001b29;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-secondary-50: #e8f5e9;
+  --color-secondary-100: #c8e6c9;
+  --color-secondary-200: #a5d6a7;
+  --color-secondary-300: #81c784;
+  --color-secondary-400: #66bb6a;
+  --color-secondary-500: #4caf50;
+  --color-secondary-600: #43a047;
+  --color-secondary-700: #388e3c;
+  --color-secondary-800: #2e7d32;
+  --color-secondary-900: #1b5e20;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Bubble animations */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 8s ease-in-out infinite;
+}
+
+.bubble-1 {
+  width: 80px;
+  height: 80px;
+  left: 10%;
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.bubble-2 {
+  width: 120px;
+  height: 120px;
+  left: 70%;
+  top: 60%;
+  animation-delay: 1s;
+}
+
+.bubble-3 {
+  width: 60px;
+  height: 60px;
+  left: 30%;
+  top: 70%;
+  animation-delay: 2s;
+}
+
+.bubble-4 {
+  width: 100px;
+  height: 100px;
+  left: 80%;
+  top: 20%;
+  animation-delay: 3s;
+}
+
+.bubble-5 {
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 40%;
+  animation-delay: 4s;
+}
+
+.bubble-6 {
+  width: 70px;
+  height: 70px;
+  left: 20%;
+  top: 50%;
+  animation-delay: 5s;
+}
+
+.bubble-7 {
+  width: 90px;
+  height: 90px;
+  left: 5%;
+  top: 80%;
+  animation-delay: 6s;
+}
+
+.bubble-8 {
+  width: 40px;
+  height: 40px;
+  left: 90%;
+  top: 45%;
+  animation-delay: 7s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 0.2;
+  }
+}
+
+/* Floating icon animation */
+.animate-float-icon {
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Hero section floating circles */
+.hero-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  animation: heroFloat 15s ease-in-out infinite;
+}
+
+.hero-circle-1 {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.hero-circle-2 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  left: 15%;
+  animation-delay: 3s;
+}
+
+.hero-circle-3 {
+  width: 100px;
+  height: 100px;
+  top: 25%;
+  right: 10%;
+  animation-delay: 6s;
+}
+
+.hero-circle-4 {
+  width: 60px;
+  height: 60px;
+  bottom: 20%;
+  right: 20%;
+  animation-delay: 9s;
+}
+
+.hero-circle-5 {
+  width: 90px;
+  height: 90px;
+  bottom: 30%;
+  left: 40%;
+  animation-delay: 12s;
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-10px, 20px) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(15px, 10px) scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+/* Fade in up animation */
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Wave animations for curved lines */
+.animate-wave {
+  animation: wave 6s ease-in-out infinite;
+}
+
+.animate-wave-delayed {
+  animation: wave 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes wave {
+  0%, 100% {
+    d: path("M0,400 Q360,200 720,400 T1440,400");
+  }
+  50% {
+    d: path("M0,400 Q360,500 720,400 T1440,400");
+  }
+}
+
+/* Amoeba shapes for About section */
+.amoeba {
+  position: absolute;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 15s ease-in-out infinite;
+}
+
+.amoeba-1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, rgba(0, 135, 205, 0.1) 0%, rgba(0, 135, 205, 0.05) 100%);
+  top: -100px;
+  right: -50px;
+  animation-delay: 0s;
+}
+
+.amoeba-2 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
+  bottom: -80px;
+  left: -50px;
+  animation-delay: 5s;
+}
+
+.amoeba-3 {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(0, 135, 205, 0.08) 0%, rgba(76, 175, 80, 0.08) 100%);
+  top: 50%;
+  left: 50%;
+  animation-delay: 10s;
+}
+
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(90deg) scale(1.05);
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%;
+    transform: rotate(270deg) scale(1.05);
+  }
+}
+
+/* Floating shapes for Products section */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatAround 20s ease-in-out infinite;
+}
+
+.floating-shape-1 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(0, 135, 205, 0.15) 0%, transparent 70%);
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.floating-shape-2 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.12) 0%, transparent 70%);
+  top: 60%;
+  right: 10%;
+  animation-delay: 5s;
+}
+
+.floating-shape-3 {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(0, 135, 205, 0.1) 0%, transparent 70%);
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 10s;
+}
+
+.floating-shape-4 {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+  top: 30%;
+  right: 5%;
+  animation-delay: 15s;
+}
+
+@keyframes floatAround {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, 30px) scale(1.05);
+  }
+}
+
+/* Dash animations for decorative lines */
+.animate-dash {
+  animation: dash 30s linear infinite;
+}
+
+.animate-dash-reverse {
+  animation: dashReverse 30s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes dashReverse {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+/* Contact section bubbles */
+.contact-bubble {
+  position: absolute;
+  border-radius: 50%;
+  animation: contactFloat 12s ease-in-out infinite;
+}
+
+.contact-bubble-1 {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(0, 135, 205, 0.15) 0%, transparent 70%);
+  top: 20%;
+  right: 20%;
+  animation-delay: 0s;
+}
+
+.contact-bubble-2 {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.12) 0%, transparent 70%);
+  top: 60%;
+  left: 10%;
+  animation-delay: 4s;
+}
+
+.contact-bubble-3 {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, rgba(0, 135, 205, 0.1) 0%, transparent 70%);
+  bottom: 30%;
+  right: 30%;
+  animation-delay: 8s;
+}
+
+@keyframes contactFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  33% {
+    transform: translate(20px, -25px) scale(1.1);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(-15px, 15px) scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+/* Slow pulse animation */
+.animate-pulse-slow {
+  animation: pulseSlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+/* Modal animation */
+.animate-modal-in {
+  animation: modalIn 0.3s ease-out forwards;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
